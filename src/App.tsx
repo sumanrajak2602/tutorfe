@@ -6,7 +6,7 @@ import { NotificationModal } from './components/NotificationModal';
 
 export function App() {
   // In a real app, this would come from your auth system
-  const userId = "676326736d21f5ba55fac0c5";
+  const userId = "6764ee38cd35e66c574c7cb9";
   const { notifications, acceptNotification, declineNotification } = useNotification(userId);
 
   // Show the most recent notification if any
