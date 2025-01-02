@@ -12,7 +12,14 @@ export const useNotification = (userId: string) => {
     socket.emit('register_user', userId);
 
     socket.on('new_notification', (data: Notification) => {
-      setNotifications(prev => [...prev, data]);
+      setNotifications(prev => {
+        // Check if notification with this ID already exists
+        const exists = prev.some(n => n.id === data.id);
+        if (exists) {
+          return prev; // Don't add if it already exists
+        }
+        return [...prev, data];
+      });
       playNotificationSound();
       vibrate();
     });
