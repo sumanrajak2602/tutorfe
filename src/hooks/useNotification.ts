@@ -44,6 +44,9 @@ export const useNotification = (userId: string) => {
     socket.emit('accept_notification', {
       userId,
       notificationId: notification.id,
+      notification:notification.payload.meetingUrl,
+      studentId: notification.payload.studentId,
+      questionId: notification.payload.questionId,
       response: responseData
     });
     
